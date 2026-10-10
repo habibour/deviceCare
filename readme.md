@@ -3,6 +3,8 @@
 Microcontroller-based protector that disconnects a load (relay) on overvoltage,
 undervoltage or overcurrent, with settings changeable on the device or from a computer.
 
+> **Implemented using the STM32 HAL library (STM32CubeF1 HAL drivers).**
+
 ## How to run
 
 The project runs in the Wokwi simulator inside VS Code. No hardware is needed.
@@ -114,6 +116,7 @@ limits; in this capture OV has been changed from 250 V to 265 V.
 
 ### Feature summary
 
+- **Built on the STM32 HAL library** (GPIO, ADC, UART, RCC from STM32CubeF1)
 - Fault detection: overvoltage (default 250 V), undervoltage (170 V), overcurrent (10 A)
 - Relay output on PB0 disconnects the load on any fault
 - State machine: MONITORING -> DISCONNECTED -> COOLDOWN (3 s) -> MONITORING
