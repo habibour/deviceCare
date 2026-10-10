@@ -1,0 +1,10 @@
+name: 09 Response time (fault injected at t=5010 ms sim time)
+version: 1
+steps:
+  - delay: 10ms
+  - set-control: {part-id: pot1, control: position, value: 0.70}
+  - set-control: {part-id: pot2, control: position, value: 0.25}
+  - delay: 5000ms
+  - set-control: {part-id: pot1, control: position, value: 0.85}
+  - delay: 1000ms
+  - expect-pin: {part-id: led_relay, pin: A, value: 0}

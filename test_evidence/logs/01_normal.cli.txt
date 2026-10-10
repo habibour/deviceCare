@@ -1,0 +1,9 @@
+
+=== Voltage Protector
+[01 Normal operation (230V, 5A)] Expected text matched: "Voltage Protector"
+ v1.0 ===
+Type HELP for commands
+[STATUS] VOLT:231.0V CURR:5.00A STATE:MONITORING FAULT:NONE
+[01 Normal operation (230V, 5A)] Expected text matched: "STATE:MONITORING FAULT:NONE"
+[01 Normal operation (230V, 5A)] expect-pin led_relay:A == 1
+[01 Normal operation (230V, 5A)] Scenario completed successfully

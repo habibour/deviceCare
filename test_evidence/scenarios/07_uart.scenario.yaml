@@ -1,0 +1,25 @@
+name: 07 UART settings and commands
+version: 1
+steps:
+  - wait-serial: "Voltage Protector"
+  - set-control: {part-id: pot1, control: position, value: 0.70}
+  - set-control: {part-id: pot2, control: position, value: 0.25}
+  - wait-serial: "STATE:MONITORING FAULT:NONE"
+  - write-serial: "HELP\n"
+  - wait-serial: "SET_OV"
+  - write-serial: "SET_OV:260\n"
+  - wait-serial: "[OK] OV=260V"
+  - write-serial: "SET_UV:300\n"
+  - wait-serial: "[ERR] UV must be"
+  - write-serial: "SET_OV:400\n"
+  - wait-serial: "[ERR] OV must be"
+  - write-serial: "SET_UV:150\n"
+  - wait-serial: "[OK] UV=150V"
+  - write-serial: "SET_OC:12.5\n"
+  - wait-serial: "[OK] OC=12.5A"
+  - write-serial: "SET_OC:25\n"
+  - wait-serial: "[ERR] OC must be"
+  - write-serial: "FOO\n"
+  - wait-serial: "[ERR] Unknown: FOO"
+  - write-serial: "STATUS\n"
+  - wait-serial: "OV:260V UV:150V OC:12.5A"

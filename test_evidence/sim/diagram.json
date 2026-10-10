@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "author": "Voltage Protector",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-stm32-bluepill",
+      "id": "stm32",
+      "top": 80,
+      "left": 160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 0,
+      "left": 0,
+      "attrs": {
+        "label": "Voltage (0-330V)"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot2",
+      "top": 80,
+      "left": 0,
+      "attrs": {
+        "label": "Current (0-20A)"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_relay",
+      "top": 80,
+      "left": 420,
+      "attrs": {
+        "color": "red",
+        "label": "Relay/Load"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 108,
+      "left": 420,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_reset",
+      "top": 200,
+      "left": 420,
+      "attrs": {
+        "color": "green",
+        "label": "RESET"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 60,
+      "left": 620,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_sel",
+      "top": 280,
+      "left": 300,
+      "attrs": {
+        "color": "blue",
+        "label": "SEL"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_up",
+      "top": 280,
+      "left": 380,
+      "attrs": {
+        "color": "yellow",
+        "label": "UP"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_dn",
+      "top": 280,
+      "left": 460,
+      "attrs": {
+        "color": "yellow",
+        "label": "DOWN"
+      }
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic1",
+      "top": 300,
+      "left": 0,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "stm32:GND.1",
+      "pot1:GND",
+      "black",
+      []
+    ],
+    [
+      "stm32:3V3.1",
+      "pot1:VCC",
+      "red",
+      []
+    ],
+    [
+      "stm32:A0",
+      "pot1:SIG",
+      "orange",
+      []
+    ],
+    [
+      "stm32:GND.1",
+      "pot2:GND",
+      "black",
+      []
+    ],
+    [
+      "stm32:3V3.1",
+      "pot2:VCC",
+      "red",
+      []
+    ],
+    [
+      "stm32:A1",
+      "pot2:SIG",
+      "orange",
+      []
+    ],
+    [
+      "stm32:B0",
+      "led_relay:A",
+      "green",
+      []
+    ],
+    [
+      "led_relay:C",
+      "r1:1",
+      "green",
+      []
+    ],
+    [
+      "r1:2",
+      "stm32:GND.1",
+      "black",
+      []
+    ],
+    [
+      "stm32:B12",
+      "btn_reset:1.l",
+      "purple",
+      []
+    ],
+    [
+      "btn_reset:2.l",
+      "stm32:GND.1",
+      "black",
+      []
+    ],
+    [
+      "stm32:A9",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "stm32:A10",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "stm32:3V3.1",
+      "lcd1:VCC",
+      "red",
+      []
+    ],
+    [
+      "stm32:GND.1",
+      "lcd1:GND",
+      "black",
+      []
+    ],
+    [
+      "stm32:B6",
+      "lcd1:SCL",
+      "cyan",
+      []
+    ],
+    [
+      "stm32:B7",
+      "lcd1:SDA",
+      "magenta",
+      []
+    ],
+    [
+      "stm32:B13",
+      "btn_sel:1.l",
+      "blue",
+      []
+    ],
+    [
+      "btn_sel:2.l",
+      "stm32:GND.1",
+      "black",
+      []
+    ],
+    [
+      "stm32:B14",
+      "btn_up:1.l",
+      "yellow",
+      []
+    ],
+    [
+      "btn_up:2.l",
+      "stm32:GND.1",
+      "black",
+      []
+    ],
+    [
+      "stm32:B15",
+      "btn_dn:1.l",
+      "yellow",
+      []
+    ],
+    [
+      "btn_dn:2.l",
+      "stm32:GND.1",
+      "black",
+      []
+    ],
+    [
+      "logic1:D0",
+      "stm32:B0",
+      "green",
+      []
+    ],
+    [
+      "logic1:D1",
+      "stm32:A9",
+      "blue",
+      []
+    ],
+    [
+      "logic1:GND",
+      "stm32:GND.1",
+      "black",
+      []
+    ]
+  ]
+}

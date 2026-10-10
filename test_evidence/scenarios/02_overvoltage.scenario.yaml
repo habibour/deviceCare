@@ -1,0 +1,10 @@
+name: 02 Overvoltage (280V)
+version: 1
+steps:
+  - wait-serial: "Voltage Protector"
+  - set-control: {part-id: pot1, control: position, value: 0.70}
+  - set-control: {part-id: pot2, control: position, value: 0.25}
+  - wait-serial: "STATE:MONITORING FAULT:NONE"
+  - set-control: {part-id: pot1, control: position, value: 0.85}
+  - wait-serial: "FAULT:OVERVOLTAGE"
+  - expect-pin: {part-id: led_relay, pin: A, value: 0}

@@ -1,0 +1,9 @@
+01_normal PASS
+02_overvoltage PASS
+03_undervoltage PASS
+04_overcurrent PASS
+05_cooldown PASS
+06_reset_button PASS
+07_uart FAIL(rc=42)
+08_setting_effect FAIL(rc=42)
+09_timing PASS

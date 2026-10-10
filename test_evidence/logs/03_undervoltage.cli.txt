@@ -1,0 +1,12 @@
+
+=== Voltage Protector
+[03 Undervoltage (132V)] Expected text matched: "Voltage Protector"
+ v1.0 ===
+Type HELP for commands
+[STATUS] VOLT:231.0V CURR:5.00A STATE:MONITORING FAULT:NONE
+[03 Undervoltage (132V)] Expected text matched: "STATE:MONITORING FAULT:NONE"
+ OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:132.0V CURR:5.00A STATE:DISCONNECTED FAULT:UNDERVOLTAGE
+[03 Undervoltage (132V)] Expected text matched: "FAULT:UNDERVOLTAGE"
+[03 Undervoltage (132V)] expect-pin led_relay:A == 0
+[03 Undervoltage (132V)] Scenario completed successfully

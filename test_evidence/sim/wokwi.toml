@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "../../src/build/Debug/voltage_protector_2.elf"
+elf = "../../src/build/Debug/voltage_protector_2.elf"

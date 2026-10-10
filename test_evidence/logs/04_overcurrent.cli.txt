@@ -1,0 +1,12 @@
+
+=== Voltage Protector
+[04 Overcurrent (15A)] Expected text matched: "Voltage Protector"
+ v1.0 ===
+Type HELP for commands
+[STATUS] VOLT:231.0V CURR:5.00A STATE:MONITORING FAULT:NONE
+[04 Overcurrent (15A)] Expected text matched: "STATE:MONITORING FAULT:NONE"
+ OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:231.0V CURR:415.00A STATE:DISCONNECTED FAULT:OVERCURRENT
+[04 Overcurrent (15A)] Expected text matched: "FAULT:OVERCURRENT"
+[04 Overcurrent (15A)] expect-pin led_relay:A == 0
+[04 Overcurrent (15A)] Scenario completed successfully

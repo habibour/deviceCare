@@ -1,0 +1,21 @@
+
+=== Voltage Protector
+[05 Cooldown after fault clears] Expected text matched: "Voltage Protector"
+ v1.0 ===
+Type HELP for commands
+[STATUS] VOLT:231.0V CURR:5.00A STATE:MONITORING FAULT:NONE
+[05 Cooldown after fault clears] Expected text matched: "STATE:MONITORING FAULT:NONE"
+ OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:280.5V CURR:5.00A STATE:DISCONNECTED FAULT:OVERVOLTAGE
+[05 Cooldown after fault clears] Expected text matched: "STATE:DISCONNECTED FAULT:OVERVOLTAGE"
+ OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:231.0V CURR:5.00A STATE:COOLDOWN
+[05 Cooldown after fault clears] Expected text matched: "STATE:COOLDOWN"
+[05 Cooldown after fault clears] expect-pin led_relay:A == 0
+ FAULT:NONE OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:231.0V CURR:5.00A STATE:COOLDOWN FAULT:NONE OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:231.0V CURR:5.00A STATE:COOLDOWN FAULT:NONE OV:250V UV:170V OC:10.0A
+[STATUS] VOLT:231.0V CURR:5.00A STATE:MONITORING FAULT:NONE
+[05 Cooldown after fault clears] Expected text matched: "STATE:MONITORING FAULT:NONE"
+[05 Cooldown after fault clears] expect-pin led_relay:A == 1
+[05 Cooldown after fault clears] Scenario completed successfully

@@ -1,0 +1,19 @@
+name: 10 On-device UI (SEL then UP x2 on OV)
+version: 1
+steps:
+  - delay: 10ms
+  - set-control: {part-id: pot1, control: position, value: 0.70}
+  - set-control: {part-id: pot2, control: position, value: 0.25}
+  - delay: 4000ms
+  - set-control: {part-id: btn_sel, control: pressed, value: 1}
+  - delay: 150ms
+  - set-control: {part-id: btn_sel, control: pressed, value: 0}
+  - delay: 400ms
+  - set-control: {part-id: btn_up, control: pressed, value: 1}
+  - delay: 150ms
+  - set-control: {part-id: btn_up, control: pressed, value: 0}
+  - delay: 400ms
+  - set-control: {part-id: btn_up, control: pressed, value: 1}
+  - delay: 150ms
+  - set-control: {part-id: btn_up, control: pressed, value: 0}
+  - delay: 1000ms

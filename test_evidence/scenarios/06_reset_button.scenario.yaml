@@ -1,0 +1,13 @@
+name: 06 Manual reset (button PB12)
+version: 1
+steps:
+  - wait-serial: "Voltage Protector"
+  - set-control: {part-id: pot1, control: position, value: 0.70}
+  - set-control: {part-id: pot2, control: position, value: 0.25}
+  - wait-serial: "STATE:MONITORING FAULT:NONE"
+  - set-control: {part-id: pot1, control: position, value: 0.85}
+  - wait-serial: "STATE:DISCONNECTED FAULT:OVERVOLTAGE"
+  - set-control: {part-id: btn_reset, control: pressed, value: 1}
+  - delay: 100ms
+  - set-control: {part-id: btn_reset, control: pressed, value: 0}
+  - wait-serial: "STATE:COOLDOWN"
