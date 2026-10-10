@@ -150,8 +150,9 @@ value (5 V steps for OV/UV, 0.5 A for OC). Returns to the view after 10 s idle.
 | `src/` | Firmware (STM32 HAL, CMake project) |
 | `project_files/` | Wokwi simulation (`diagram.json`, `wokwi.toml`) |
 | `schematics/` | Schematic / block diagram of the real product |
-| `test_evidence/` | Scenarios, screenshots, logs, timing captures |
-| `design_report.pdf` | Design document |
+| `test_evidence/` | Scenarios, screenshots (`evidance_screanshots.pdf`), logs, timing captures |
+| `project_report.pdf` | Project report |
+| `project_files/design_documents.pdf` | Design document |
 
 ## Limitations
 
