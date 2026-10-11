@@ -8,27 +8,32 @@ undervoltage or overcurrent, with settings changeable on the device or from a co
 ## How to run
 
 The project runs in the Wokwi simulator inside VS Code. No hardware is needed.
+The prebuilt firmware (`project_files/firmware/voltage_protector_2.elf`) is included in the repo,
+so after `git clone` there is nothing to compile.
 
 **1. Install**
 
-- `arm-none-eabi-gcc`, CMake >= 3.22, Ninja
 - VS Code with the *Wokwi Simulator* extension, then `F1` -> *Wokwi: Request a Free License*
 
-**2. Build the firmware**
+**2. Start the simulation**
+
+1. Open the `project_files/` folder in VS Code.
+2. `F1` -> *Wokwi: Start Simulator*.
+3. Open the **Terminal / Serial Monitor** panel to see the `[STATUS]` line (115200 8N1, once per second).
+
+**3. (Optional) Rebuild the firmware**
+
+Only needed if you change the code in `src/`. Requires `arm-none-eabi-gcc` (on `PATH`), CMake >= 3.22 and Ninja.
 
 ```bash
 cd src
 cmake --preset Debug
 cmake --build --preset Debug
+cp build/Debug/voltage_protector_2.elf ../project_files/firmware/
 ```
 
-This produces `src/build/Debug/voltage_protector_2.elf`, which `project_files/wokwi.toml` points at.
-
-**3. Start the simulation**
-
-1. Open the `project_files/` folder in VS Code.
-2. `F1` -> *Wokwi: Start Simulator*.
-3. Open the **Terminal / Serial Monitor** panel to see the `[STATUS]` line (115200 8N1, once per second).
+Use these terminal commands rather than the VS Code CMake Tools button; `src/.vscode/settings.json` is set up for
+the STM32Cube extension's `cube-cmake`.
 
 **4. Drive it**
 
@@ -53,7 +58,8 @@ Quick tries with the default limits (OV 250 V, UV 170 V, OC 10 A):
 
 **5. (Optional) Run the automated scenarios**
 
-Headless, with `wokwi-cli`. Needs a token from <https://wokwi.com/dashboard/ci>.
+Headless, with `wokwi-cli`. Needs a token from <https://wokwi.com/dashboard/ci> and a firmware build in
+`src/build/Debug` (step 3).
 
 ```bash
 export WOKWI_CLI_TOKEN=<your token>
@@ -151,7 +157,7 @@ value (5 V steps for OV/UV, 0.5 A for OC). Returns to the view after 10 s idle.
 | Path | Content |
 |---|---|
 | `src/` | Firmware (STM32 HAL, CMake project) |
-| `project_files/` | Wokwi simulation (`diagram.json`, `wokwi.toml`) |
+| `project_files/` | Wokwi simulation (`diagram.json`, `wokwi.toml`, prebuilt `firmware/*.elf`) |
 | `schematics/` | Schematic / block diagram of the real product |
 | `test_evidence/` | Scenarios, screenshots (`evidance_screanshots.pdf`), logs, timing captures |
 | `project_report.pdf` | Project report |

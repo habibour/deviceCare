@@ -1,5 +1,5 @@
 [wokwi]
 version = 1
-firmware = "../src/build/Debug/voltage_protector_2.elf"
+firmware = "firmware/voltage_protector_2.elf"
 gdbServerPort = 3333
 rfc2217ServerPort = 4000
